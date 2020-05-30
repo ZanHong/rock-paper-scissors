@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <script>
+        // Announce to user that it is a rock paper scissors game
+        alert("LET'S PLAY ROCK PAPER SCISSORS!!!")
+
+        var array = ["r", "p", "s"];
+        var compScore = 0;
+        var userScore = 0;
+        var ties = 0;
+
+        console.log("You chose " + userChoice);
+        console.log("Computer chose " + compChoice);
+        
+        // Converting comp's randomly generated numbers into rock paper or scissors   
+        for (var i = 0; i < 3; i++) {
+            console.log(i);
+            var userChoice = prompt("Please select rock, paper or scissors (r,p or s): ");
+            var comp = Math.floor(Math.random() * 3);
+            var compChoice = array[comp];
+            
+            if (userChoice == "r" || userChoice == "p" || userChoice == "s") {
+                if (userChoice === compChoice) {
+                    alert("It's a tie");
+                    ties++;
+                }
+                else if ((userChoice === "r" && compChoice === "p") || (userChoice === "p" && compChoice === "s") || (userChoice === "s" && compChoice === "r")) {
+                    alert("You lose!");
+                    compScore++;
+                }
+                else {
+                    alert('You win!');
+                    userScore++;
+                }
+            } 
+            else {
+                alert("Please enter the right letter!");
+                i--;
+            }
+            
+        }
+
+        document.write("Your Score: " + userScore);
+        document.write("\n");
+        document.write("Computer's Score: " + compScore);
+        document.write("\n");
+        document.write("Ties: " + ties);
+
+    </script>
+</body>
+
+</html>
